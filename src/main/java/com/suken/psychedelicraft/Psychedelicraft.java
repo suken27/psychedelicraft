@@ -7,11 +7,13 @@ import com.suken.psychedelicraft.blocks.ExampleBlock;
 import com.suken.psychedelicraft.blocks.ModBlocks;
 import com.suken.psychedelicraft.setup.ClientProxy;
 import com.suken.psychedelicraft.setup.IProxy;
+import com.suken.psychedelicraft.setup.ModSetup;
 import com.suken.psychedelicraft.setup.ServerProxy;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.Properties;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -25,6 +27,8 @@ public class Psychedelicraft {
 	
 	public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
 	
+	public static ModSetup setup = new ModSetup();
+	
 	// Directly reference a log4j logger.
 	private static final Logger LOGGER = LogManager.getLogger();
 
@@ -34,7 +38,8 @@ public class Psychedelicraft {
 	}
 
 	private void setup(final FMLCommonSetupEvent event) {
-
+		setup.init();
+		proxy.init();
 	}
 
 	// You can use EventBusSubscriber to automatically subscribe events on the
@@ -55,7 +60,8 @@ public class Psychedelicraft {
 		
 		@SubscribeEvent
 		public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
-			itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.EXAMPLEBLOCK, new Item.Properties()).setRegistryName("exampleblock"));
+			Properties properties = new Item.Properties().group(setup.itemGroup);
+			itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.EXAMPLEBLOCK, properties).setRegistryName("exampleblock"));
 		}
 	}
 }
