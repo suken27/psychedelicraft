@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"xxx",
+		" # ",
+		" # "
+	],
+	"key": {
+		"x": {
+			"item": "psychedelicraft:exampleblock"
+		},
+		"#": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "psychedelicraft:exampleitem"
+	}
+}

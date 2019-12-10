@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.suken.psychedelicraft.blocks.ExampleBlock;
 import com.suken.psychedelicraft.blocks.ModBlocks;
+import com.suken.psychedelicraft.items.ExampleItem;
 import com.suken.psychedelicraft.setup.ClientProxy;
 import com.suken.psychedelicraft.setup.IProxy;
 import com.suken.psychedelicraft.setup.ModSetup;
@@ -62,6 +63,7 @@ public class Psychedelicraft {
 		public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
 			Properties properties = new Item.Properties().group(setup.itemGroup);
 			itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.EXAMPLEBLOCK, properties).setRegistryName("exampleblock"));
+			itemRegistryEvent.getRegistry().register(new ExampleItem());
 		}
 	}
 }
