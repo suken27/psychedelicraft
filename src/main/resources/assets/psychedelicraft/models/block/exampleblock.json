@@ -1,6 +1,12 @@
 {
-	"parent": "block/cube_all",
+	"parent": "block/cube",
 	"textures": {
-		"all": "psychedelicraft:block/exampleblock"
+		"particle": "psychedelicraft:block/exampleblock",
+		"down": "psychedelicraft:block/exampleblock",
+		"up": "psychedelicraft:block/exampleblock",
+		"east": "psychedelicraft:block/exampleblock",
+		"west": "psychedelicraft:block/exampleblock",
+		"north": "psychedelicraft:block/exampleblock_front",
+		"south": "psychedelicraft:block/exampleblock"
 	}
 }

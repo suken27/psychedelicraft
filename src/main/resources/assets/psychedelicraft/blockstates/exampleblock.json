@@ -1,5 +1,10 @@
 {
 	"variants": {
-		"": { "model": "psychedelicraft:block/exampleblock" }
+		"facing=north": { "model": "psychedelicraft:block/exampleblock"},
+		"facing=south": { "model": "psychedelicraft:block/exampleblock", "y": 180 },
+		"facing=west": { "model": "psychedelicraft:block/exampleblock", "y": 270 },
+		"facing=east": { "model": "psychedelicraft:block/exampleblock", "y": 90 },
+		"facing=up": { "model": "psychedelicraft:block/exampleblock", "x": -90 },
+		"facing=down": { "model": "psychedelicraft:block/exampleblock", "x": 90 }
 	}
 }

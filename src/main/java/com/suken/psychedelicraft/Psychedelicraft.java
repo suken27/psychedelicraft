@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.suken.psychedelicraft.blocks.ExampleBlock;
+import com.suken.psychedelicraft.blocks.ExampleBlockTile;
 import com.suken.psychedelicraft.blocks.ModBlocks;
 import com.suken.psychedelicraft.items.ExampleItem;
 import com.suken.psychedelicraft.setup.ClientProxy;
@@ -15,6 +16,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.Properties;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -64,6 +66,11 @@ public class Psychedelicraft {
 			Properties properties = new Item.Properties().group(setup.itemGroup);
 			itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.EXAMPLEBLOCK, properties).setRegistryName("exampleblock"));
 			itemRegistryEvent.getRegistry().register(new ExampleItem());
+		}
+		
+		@SubscribeEvent
+		public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> tileRegistryEvent) {
+			tileRegistryEvent.getRegistry().register(TileEntityType.Builder.create(ExampleBlockTile::new, ModBlocks.EXAMPLEBLOCK).build(null).setRegistryName("exampleblock"));
 		}
 	}
 }
