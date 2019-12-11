@@ -22,6 +22,7 @@ public class ExampleBlockTile extends TileEntity implements ITickableTileEntity 
 
 	@Override
 	public void tick() {
+		System.out.println("ExampleBlockTile.tick");
 		if (world.isRemote) {
 			System.out.println("ExampleBlockTile.tick");
 		}
