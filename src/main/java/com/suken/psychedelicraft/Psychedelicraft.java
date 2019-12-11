@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.suken.psychedelicraft.blocks.ExampleBlock;
+import com.suken.psychedelicraft.blocks.ExampleBlockContainer;
 import com.suken.psychedelicraft.blocks.ExampleBlockTile;
 import com.suken.psychedelicraft.blocks.ModBlocks;
 import com.suken.psychedelicraft.items.ExampleItem;
@@ -13,10 +14,13 @@ import com.suken.psychedelicraft.setup.ModSetup;
 import com.suken.psychedelicraft.setup.ServerProxy;
 
 import net.minecraft.block.Block;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.Properties;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -71,6 +75,14 @@ public class Psychedelicraft {
 		@SubscribeEvent
 		public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> tileRegistryEvent) {
 			tileRegistryEvent.getRegistry().register(TileEntityType.Builder.create(ExampleBlockTile::new, ModBlocks.EXAMPLEBLOCK).build(null).setRegistryName("exampleblock"));
+		}
+		
+		@SubscribeEvent
+		public static void onContainerRegistry(final RegistryEvent.Register<ContainerType<?>> containerRegistryEvent) {
+			containerRegistryEvent.getRegistry().register(IForgeContainerType.create((windowId, inv, data) -> {
+				BlockPos pos = data.readBlockPos();
+				return new ExampleBlockContainer(windowId, proxy.getClientWorld(), pos, inv);
+			}).setRegistryName("exampleblock"));
 		}
 	}
 }
