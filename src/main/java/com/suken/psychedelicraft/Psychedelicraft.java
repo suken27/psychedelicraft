@@ -3,6 +3,7 @@ package com.suken.psychedelicraft;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.suken.psychedelicraft.blocks.BlockDryingTable;
 import com.suken.psychedelicraft.blocks.ExampleBlock;
 import com.suken.psychedelicraft.blocks.ExampleBlockContainer;
 import com.suken.psychedelicraft.blocks.ExampleBlockTile;
@@ -31,6 +32,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("psychedelicraft")
 public class Psychedelicraft {
+	
+	public static final String MODID = "psychedelicraft";
 	
 	public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
 	
@@ -63,18 +66,21 @@ public class Psychedelicraft {
 		@SubscribeEvent
 		public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
 			blockRegistryEvent.getRegistry().register(new ExampleBlock());
+			blockRegistryEvent.getRegistry().register(new BlockDryingTable());
 		}
 		
 		@SubscribeEvent
 		public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
 			Properties properties = new Item.Properties().group(setup.itemGroup);
 			itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.EXAMPLEBLOCK, properties).setRegistryName("exampleblock"));
+			itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.BLOCK_DRYING_TABLE, properties).setRegistryName("blockdryingtable"));
 			itemRegistryEvent.getRegistry().register(new ExampleItem());
 		}
 		
 		@SubscribeEvent
 		public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> tileRegistryEvent) {
 			tileRegistryEvent.getRegistry().register(TileEntityType.Builder.create(ExampleBlockTile::new, ModBlocks.EXAMPLEBLOCK).build(null).setRegistryName("exampleblock"));
+			tileRegistryEvent.getRegistry().register(TileEntityType.Builder.create(ExampleBlockTile::new, ModBlocks.BLOCK_DRYING_TABLE).build(null).setRegistryName("blockdryingtable"));
 		}
 		
 		@SubscribeEvent

@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle": "psychedelicraft:block/",
+		"down": "psychedelicraft:block/blockdryingtable_bottom",
+		"up": "psychedelicraft:block/blockdryingtable_top",
+		"east": "psychedelicraft:block/blockdryingtable",
+		"west": "psychedelicraft:block/blockdryingtable",
+		"north": "psychedelicraft:block/blockdryingtable",
+		"south": "psychedelicraft:block/blockdryingtable"
+	}
+}

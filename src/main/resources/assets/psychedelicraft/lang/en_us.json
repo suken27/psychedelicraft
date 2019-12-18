@@ -1,6 +1,7 @@
 {
 	"item.psychedelicraft.exampleitem": "Example Item",
 	"block.psychedelicraft.exampleblock": "Example Block",
+	"block.psychedelicraft.blockdryingrable": "Drying Table",
 	
 	"_comment": "Creative Tabs",
 	"itemGroup.psychedelicraft": "Psychedelicraft"
