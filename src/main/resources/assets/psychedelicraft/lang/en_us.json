@@ -1,3 +1,6 @@
 {
-	"item.psychedelicraft.tutorial_weed": "Tutorial weed"
+	"item.psychedelicraft.tutorial_weed": "Tutorial weed",
+	"item.psychedelicraft.tutorial_brownie": "Tutorial brownie",
+	"block.psychedelicraft.tutorial_weed_block": "Tutorial weed block",
+	"itemGroup.tutorial_weed_group": "Tutorial weed tab"
 }

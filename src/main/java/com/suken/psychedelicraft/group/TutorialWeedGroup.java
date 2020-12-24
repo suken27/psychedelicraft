@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 public class TutorialWeedGroup extends ItemGroup {
 
 	public TutorialWeedGroup() {
-		super("tutorial_weed");
+		super("tutorial_weed_group");
 	}
 
 	@Override
